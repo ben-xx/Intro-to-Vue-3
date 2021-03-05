@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Vue Mastery</title>
-    <!-- Import Styles -->
-    <link rel="stylesheet" href="./assets/styles.css" />
-    <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@next"></script>
-  </head>
-  <body>
-    <div id="app">
-      <div class="nav-bar"></div>
-      
-      <div class="product-display">
+app.component('product-display',{
+    template: 
+        /*html*/
+        `<div class="product-display">
         <div class="product-container">
           <div class="product-image">
             <img :src="activeImage">
@@ -46,15 +35,5 @@
             </button>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Import App -->
-    <script src="./main.js"></script>
-
-    <!-- Mount App -->
-    <script>
-      const mountedApp = app.mount('#app')
-    </script>
-  </body>
-</html>
+      </div>`
+})

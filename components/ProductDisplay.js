@@ -24,18 +24,25 @@ app.component('product-display',{
                     quantity: 50
                 },
             ],
-            selected: 0
+            selected: 0,
+            productReviews: []
         }
     },
     methods: {
         addCart() {
+            // broadcast this payload (an id) to 'add-to-cart' listener in
+            // hosting template where a method can ingest payload
             this.$emit('add-to-cart', this.variants[this.selected].id)
+            
             //this.cart++
             //console.log('Cart:'+ this.cart)
         },
         setSelected(index) {
             this.selected = index;
             //console.log('selected:'+ this.selected)
+        },
+        submitReview(review) {
+            this.productReviews.push(review);
         }
     },
     computed: {
@@ -93,6 +100,8 @@ app.component('product-display',{
                         Add to Cart
                     </button>
                 </div>
+                <review-display v-show="productReviews.length" :reviews="productReviews"></review-display>
+                <product-review @review-submitted="submitReview"></product-review>
             </div>
         </div>`
 })

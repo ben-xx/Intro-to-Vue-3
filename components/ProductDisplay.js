@@ -1,3 +1,4 @@
+// just testing if I can push to github under ssh publickey /w password ask
 app.component('product-display',{
     props: {
         premium: {
